@@ -51,10 +51,10 @@ public class BreakEvenCalc
             System.out.println("How many contracts?");
             quantity = sc.nextDouble();
 
-            totalCommission = baseCommission + (perContractComm * quantity);
+            totalCommission = ((baseCommission + (perContractComm * quantity))*2)/100; //times two because buy and sell commission
 
             perUnitComm = totalCommission / quantity;
-
+            System.out.println("Debug: " + totalCommission + " " + perUnitComm);
             if (call)
             {
                 BE = strikePrice + contractValue + perUnitComm;
@@ -65,7 +65,6 @@ public class BreakEvenCalc
 
             if (buy)
             {
-
                 if (call)
                 {
                     System.out.println("You will break even (or make money) if");
